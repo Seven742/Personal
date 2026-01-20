@@ -1,0 +1,230 @@
+:root {
+    --card-w: 360px;
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --accent: #ffb86b;
+    --muted: #e6eef7;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(1200px 600px at 10% 10%, #ff9a9e33, transparent 10%), radial-gradient(800px 400px at 90% 90%, #8ec5fc33, transparent 12%), linear-gradient(180deg, #0f172a, #0b1220);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+.scene {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.85;
+    transform: translate3d(0, 0, 0)
+}
+
+.blob.b1 {
+    width: 420px;
+    height: 420px;
+    left: -80px;
+    top: -40px;
+    background: linear-gradient(135deg, #ff7a7a, #ffc36b);
+    animation: float 7s ease-in-out infinite
+}
+
+.blob.b2 {
+    width: 320px;
+    height: 320px;
+    right: -60px;
+    bottom: -20px;
+    background: linear-gradient(135deg, #6be3ff, #8ac6ff);
+    animation: float 9s ease-in-out infinite
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1)
+    }
+
+    50% {
+        transform: translateY(-18px) scale(1.03)
+    }
+}
+
+.card {
+    width: var(--card-w);
+    border-radius: 18px;
+    padding: 28px 26px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px) saturate(120%);
+    text-align: center;
+}
+
+.avatar-wrap {
+    position: relative;
+    display: inline-block;
+    margin-top: -12px
+}
+
+.Pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    border: 6px solid transparent;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6)
+}
+
+.pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
+    pointer-events: none
+}
+
+h1 {
+    margin: 14px 0 6px;
+    font-size: 22px;
+    letter-spacing: 0.2px
+}
+
+.handle {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 13px
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px
+}
+
+.brand-mark {
+    border-radius: 14px;
+    box-shadow: 0 8px 26px rgba(2, 6, 23, 0.45)
+}
+
+.brand-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.6px
+}
+
+.Link-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.4);
+    transition: transform .18s ease, box-shadow .18s ease;
+    overflow: hidden
+}
+
+.Link-btn svg {
+    flex: 0 0 20px;
+    color: inherit
+}
+
+.Link-btn span {
+    flex: 1;
+    text-align: left
+}
+
+.Link-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.12);
+    outline-offset: 2px
+}
+
+.Link-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(2, 6, 23, 0.6)
+}
+
+.fb {
+    background: linear-gradient(90deg, #1877f2, #165dcb)
+}
+
+.ig {
+    background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5)
+}
+
+.tt {
+    background: linear-gradient(90deg, #000000, #ff0050, #00e0ff)
+}
+
+.gh {
+    background: linear-gradient(90deg, #24292e, #3b4045)
+}
+
+.tg {
+    background: linear-gradient(90deg, #22a9ff, #39c0ff)
+}
+
+.note {
+    margin-top: 16px;
+    color: #dbe9ff;
+    font-size: 13px
+}
+
+@media (max-width:420px) {
+    .card {
+        width: 92vw;
+        padding: 20px
+    }
+
+    .scene {
+        padding: 18px
+    }
+}
+
+/* subtle accessibility: prefer reduced motion */
+@media (prefers-reduced-motion:reduce) {
+
+    .blob,
+    .Link-btn,
+    .card {
+        animation: none;
+        transition: none
+    }
+}
