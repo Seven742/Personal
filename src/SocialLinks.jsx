@@ -87,7 +87,7 @@ const SocialLinks = () => {
                     </a>
                 </div>
 
-                <footer className="note">Tap a link • Thanks You✨</footer>
+                <footer className="note">Tap a link • Thanks You</footer>
             </div>
         </div>
     );
